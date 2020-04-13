@@ -1,0 +1,62 @@
+$button-color: #ddd;
+$toggler-color: #fff;
+$button-color-2: lightgreen;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+
+  .container {
+    max-width: 90%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #button {
+      background-color: $button-color;
+      display: flex;
+      position: relative;
+      width: 200px;
+      height: 60px;
+      align-items: center;
+      border-radius: 70px 70px;
+      transition: all 0.9s ease-in-out;
+
+      & #checkbox {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 5px;
+        opacity: 0;
+        z-index: 2;
+
+        &:checked {
+          transform: translateX(140px);
+
+          & + .toggler {
+            transform: translateX(140px);
+            background-color: $button-color-2;
+          }
+        }
+      }
+
+      & .toggler {
+        background-color: $toggler-color;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        top: 0;
+        left: 0;
+        border-radius: 70px;
+        transition: all 0.9s ease-in-out;
+      }
+    }
+  }
+}
